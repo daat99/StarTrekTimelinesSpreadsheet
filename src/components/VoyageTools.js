@@ -645,7 +645,15 @@ export class VoyageLog extends React.Component {
 					<div className='ui blue label'>
 						Estimated revival cost: {Math.floor((this.state.voyage.voyage_duration / 60 + this.state.estimatedMinutesLeft) / 5)} dilithium
 					</div>
+					
+					<div className='ui red label'>
+						Estimated return trip: {formatTimeSeconds(this.state.voyage_duration*2/5)}
+					</div>
 
+					<div className='ui red label'>
+						Estimated return time: {(new Date(new Date().getTime() + 1000*this.state.voyage_duration*2/5).toLocaleTimeString('en-US', { hour12: false }))}
+					</div>
+				
 					<p>There is an estimated {getDilemmaChance(this.state.estimatedMinutesLeft)}% chance for the voyage to reach next dilemma.</p>
 				</div>
 			);
