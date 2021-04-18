@@ -48,7 +48,7 @@
     "packagedev": "webpack --mode development --config ./webpack/webpack.build.electron.config.js",
     "postpackagedev": "electron-packager ./ --out=./builds --prune --icon=src/assets/icons/ATFleet.ico",
     "installer": "node createinstaller.js",
-    "install:all": "run-s -l install:api rebuild",
+    "install:all": "npm run -s -l install:api rebuild",
     "install:api": "cd STTApi && npm install"
   },
   "devDependencies": {
