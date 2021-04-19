@@ -397,6 +397,7 @@ export class AppHome extends React.Component {
 		return [
 			this._tabMenuItem({ key: 'Fleet', itemIcon: 'WindDirection' }),
 			this._tabMenuItem({ key: 'FactionDetails', name: 'Factions', itemIcon: 'Teamwork' }),
+			this._tabMenuItem({ key: 'Ships', itemIcon: 'Airplane' }),
 			this._tabMenuItem({ key: 'Shuttles', name: 'Shuttles', itemIcon: 'Sections' }),
 			this._tabMenuItem({ key: 'CryoCollections', name: 'Cryo collections', itemIcon: 'CheckList' })];
 	}
@@ -430,21 +431,13 @@ export class AppHome extends React.Component {
 		}
 
 		navItems = navItems.concat([
-			this._tabMenuItem({ key: 'Crew', itemIcon: 'Teamwork' }),
+			
 			{
 				key: 'tools',
-				text: 'Tools and recommendations',
+				text: 'Tools',
 				iconProps: { iconName: 'TestUserSolid' },
 				subMenuProps: {
 					items: [this._tabMenuItem({ key: 'Missions', itemIcon: 'Trophy' }),
-					{
-						key: 'NeededEquipment',
-						name: 'Needed Equipment',
-						iconProps: { iconName: 'WaitlistConfirm' },
-						onClick: () => {
-							this._switchTab('NeededEquipment');
-						}
-					},
 					{
 						key: 'CrewDuplicates',
 						name: 'Duplicate crew',
@@ -463,10 +456,11 @@ export class AppHome extends React.Component {
 					}]
 				}
 			},
+			this._tabMenuItem({ key: 'Crew', itemIcon: 'Teamwork' }),
 			this._tabMenuItem({ key: 'Voyage', itemIcon: 'Rocket' }),
 			this._tabMenuItem({ key: 'Gauntlet', itemIcon: 'ConnectContacts' }),
 			this._tabMenuItem({ key: 'Items', itemIcon: 'Boards' }),
-			this._tabMenuItem({ key: 'Ships', itemIcon: 'Airplane' })
+			this._tabMenuItem({ key: 'NeededEquipment', itemIcon: 'WaitlistConfirm' })
 		]);
 
 		return navItems;
