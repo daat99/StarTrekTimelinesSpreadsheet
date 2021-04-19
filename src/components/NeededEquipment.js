@@ -21,12 +21,16 @@ export class NeededEquipment extends React.Component {
 		STTApi.roster.forEach(crew => {
 			let have = STTApi.roster.find(c => c.symbol === crew.symbol);
 
-			peopleList.push({
-				key: crew.id,
-				value: crew.id,
-				image: { src: crew.iconUrl },
-				text: `${crew.name} (${have ? 'owned' : 'unowned'} ${crew.max_rarity}*)`
-			});
+			//ignore duplicate crew
+			if ( !peopleList.find( p => p.key === crew.id) )
+			{
+				peopleList.push({
+					key: crew.id,
+					value: crew.id,
+					image: { src: crew.iconUrl },
+					text: `${crew.name} (${have ? 'owned' : 'unowned'} ${crew.max_rarity}*)`
+				});
+			}
 		});
 
 		this.state = {
