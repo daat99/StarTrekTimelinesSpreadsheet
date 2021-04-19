@@ -4,6 +4,7 @@ import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 import { ItemList } from './ItemList.js';
 
 import { exportItemsCsv } from '../utils/csvExporter.js';
+import { exportToClipboard } from '../utils/clipboardExporter.js';
 
 import { download } from '../utils/pal';
 
@@ -26,6 +27,15 @@ export class ItemPage extends React.Component {
                     onClick: () => {
                         let csv = exportItemsCsv();
                         download('My Items.csv', csv, 'Export Star Trek Timelines item inventory', 'Export');
+                    }
+                },
+				{
+                    key: 'exportClipboard',
+                    name: 'Export Clipboard...',
+                    iconProps: { iconName: 'ExcelDocument' },
+                    onClick: () => {
+                        let csv = exportItemsCsv();
+                        exportToClipboard(csv);
                     }
                 }
             ]);
