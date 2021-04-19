@@ -18,7 +18,7 @@ export class NeededEquipment extends React.Component {
 		super(props);
 
 		let peopleList = [];
-		STTApi.allcrew.forEach(crew => {
+		STTApi.roster.forEach(crew => {
 			let have = STTApi.roster.find(c => c.symbol === crew.symbol);
 
 			peopleList.push({
